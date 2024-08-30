@@ -2,6 +2,8 @@
 
 ¡Bienvenido a mi repositorio! Aquí encontrarás los ejercicios y ejemplos que he realizado como parte de mis cursos de SQL Server. Este repositorio sirve como un espacio para practicar y mejorar mis habilidades en SQL Server, incluyendo consultas, administración de bases de datos, optimización y más.
 
+Los ejercicios y ejemplos están basados en el curso de Udemy [Master SQL Server](https://www.udemy.com/course/master-sql-server/).
+
 ## Contenido
 
 El repositorio está organizado de la siguiente manera:
@@ -19,7 +21,7 @@ El repositorio está organizado de la siguiente manera:
 
 1. Clona el repositorio en tu máquina local:
     ```bash
-    git clone https://github.com/ivanhack34/practica-sql-server.git
+    git clone https://github.com/tu-usuario/tu-repositorio.git
     ```
 
 2. Navega a través de las carpetas para encontrar los ejercicios o ejemplos que te interesen.
@@ -32,4 +34,6 @@ El repositorio está organizado de la siguiente manera:
 
 Este es un proyecto personal, pero si tienes sugerencias o quieres contribuir, eres bienvenido a hacerlo. Puedes abrir un "issue" o hacer un "pull request" con tus propuestas.
 
+## Licencia
 
+Este proyecto está bajo la Licencia MIT - consulta el archivo [LICENSE](LICENSE) para más detalles.
