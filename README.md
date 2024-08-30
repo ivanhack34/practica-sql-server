@@ -34,6 +34,4 @@ El repositorio está organizado de la siguiente manera:
 
 Este es un proyecto personal, pero si tienes sugerencias o quieres contribuir, eres bienvenido a hacerlo. Puedes abrir un "issue" o hacer un "pull request" con tus propuestas.
 
-## Licencia
 
-Este proyecto está bajo la Licencia MIT - consulta el archivo [LICENSE](LICENSE) para más detalles.
