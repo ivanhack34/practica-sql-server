@@ -1,0 +1,730 @@
+--Crear la tabla pais (Ejercicio - Clase 41)
+
+/*CREATE TABLE Pais (
+		idPais char(3) NOT NULL,
+		Pais VARCHAR(30) NULL,
+		CONSTRAINT PK_idPais PRIMARY KEY (idPais)
+)*/
+
+--Crear la tabla TurnoEstado (Ejercicio - Clase 45)
+
+/*CREATE TABLE TurnoEstado (
+		idEstado SMALLINT NOT NULL,
+		Descripcion VARCHAR(50) NULL,
+		CONSTRAINT PK_idEstado PRIMARY KEY (idEstado)
+)*/
+
+--Crear la tabla Especialidad (Ejercicio - Clase 46)
+
+/*CREATE TABLE Especialidad (
+		idEspecialidad INT NOT NULL IDENTITY (1,1),
+		Especialidad VARCHAR(30) NULL,
+		CONSTRAINT PK_idEspecialidad PRIMARY KEY (idEspecialidad)
+)*/
+
+--Ejemplo de la clase 47 - Tabla Pago
+
+/*CREATE TABLE Pago (
+		idPago INT IDENTITY (1,1) NOT NULL PRIMARY KEY,
+		concepto TINYINT NOT NULL,
+		fecha DATETIME NOT NULL,
+		monto MONEY NOT NULL,
+		estado TINYINT,
+		obs varchar(1000)
+)
+*/
+
+--Ejemplo de la clase 48  - Tabla PagoPaciente
+
+/*CREATE TABLE PagoPaciente(
+		idPago INT NOT NULL,
+		idPaciente INT NOT NULL,
+		idTurno INT NOT NULL
+
+		PRIMARY KEY(idPago,idPaciente,idTurno)
+)
+*/
+
+--Crear la tabla Medico (Ejercicio - Clase 49)
+
+/*CREATE TABLE Medico(
+		idMedico INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+		nombre VARCHAR(50) NOT NULL,
+		apellido VARCHAR(50) NOT NULL
+)*/
+
+--Crear la tabla MedicoEspecialidad (Ejercicio - Clase 50)
+
+/*CREATE TABLE MedicoEspecialidad(
+		idMedico INT NOT NULL,
+		idEspecialidad INT NOT NULL,
+		Descripcion VARCHAR(50) NULL
+
+		PRIMARY KEY(idMedico,idEspecialidad)
+)*/
+
+--Ejemplo de la clase 51  - Tabla Concepto
+
+/*CREATE TABLE Concepto(
+		idConcepto tinyint IDENTITY(1,1) NOT NULL PRIMARY KEY,
+		descripcion VARCHAR(100)
+)*/
+
+--Ejemplo de la clase 52  - Crear tipos de datos
+
+--CREATE TYPE medico from int not null
+
+--CREATE TYPE turno from int not null
+
+--Crear el tipo de dato Paciente (Ejercicio - Clase 53)
+
+--CREATE TYPE paciente from int not null
+
+--Crear el tipo de dato Historia (Ejercicio - Clase 54)
+
+--CREATE TYPE historia FROM INT NOT NULL
+
+--Crear el tipo de dato Observacion (Ejercicio - Clase 56)
+
+--CREATE TYPE observacion FROM VARCHAR(1000) NULL
+
+--Ejemplo de la clase 79  - Comando SELECT FROM
+
+--(Quiero mostrar la tabla paciente)
+
+--SELECT * FROM Paciente 
+
+--Quiero mostrar de la tabla paciente: idPaciente, nombre y apellido
+
+--SELECT idPaciente,nombre,apellido FROM Paciente ()
+
+--Ejemplo de la clase 80  - El uso de INSERT e INSERTE Multiple
+
+/*
+SELECT * FROM Paciente
+
+INSERT INTO Paciente(dni, nombre, apellido, fNacimiento, domicilio, idPais, telefono, email, observacion)
+VALUES ('33578126', 'Jose', 'Perez', '1999-04-15', 'Lavalle 2563', 'COL', NULL, 'jose@gmail.com', 'paciente derivado')
+, ('20485781', 'Marcela', 'Torres', '1978-02-15', 'Belgrano 1563', 'MEX', '156847523', 'Marcela@gmail.com', '')
+*/
+
+
+--Ejemplo de la clase 81  - Para usar INSERT y primary keys
+
+/*
+SELECT * FROM Pais
+
+INSERT INTO Pais VALUES('ESP', 'España')
+*/
+
+--Insertar registros en la tabla TurnoEstado (Ejercicio - Clase 82)
+
+/*
+SELECT * FROM TurnoEstado
+
+INSERT INTO TurnoEstado VALUES('0', 'Pendiente'), 
+('1', 'Realizado'), 
+('2', 'Cancelado'), 
+('3', 'Rechazado'), 
+('4', 'Postergado')
+,('5', 'Anulado'), 
+('6', 'Derivado')
+
+*/
+
+--Comprabar si la pk de TurnoEstado funciona (Ejercicio - Clase 83)
+
+/*
+SELECT * FROM TurnoEstado
+
+INSERT INTO TurnoEstado VALUES('0', 'Pendiente')
+*/
+
+--Insertar nuevos Turnos (Ejercicio - Clase 84)
+
+/*
+SELECT * FROM Turno
+
+INSERT INTO Turno VALUES ('2023-03-15', NULL , 'Paciente en ayunas')
+
+SELECT * FROM TurnoPaciente
+
+SELECT * FROM Paciente
+
+SELECT * FROM Medico
+
+INSERT INTO TurnoPaciente VALUES('6', '4', '1')
+*/
+
+--Comprobar los FK de las tablas Turno, TurnoPaciente y TurnoEstado (Ejercicio - Clase 85)
+
+/*
+SELECT * FROM Turno
+
+INSERT INTO Turno VALUES ('2024-02-14', 8 , 'Pruebas')
+
+SELECT * FROM TurnoPaciente
+
+INSERT INTO TurnoPaciente VALUES('12', '15', '5')
+*/
+
+--Insertar registros en la tablas Pago, PagoPaciente y Concepto (Ejercicio - Clase 86)
+
+/*
+SELECT * FROM Concepto
+
+INSERT INTO Concepto VALUES('Laboratorio'),
+('Radiografía')
+
+SELECT * FROM Pago
+
+CREATE TYPE concepto from int not null
+
+INSERT INTO Pago VALUES('1', '2019-02-15', '4500', '0', 'Pago pendiente'),
+('2', '2019-05-20', '6800', '0', 'Pago pendiente'),
+('1', '2019-09-27', '5600', '0', 'Pago pendiente')
+
+SELECT * FROM PagoPaciente
+
+SELECT * FROM Paciente
+
+SELECT * FROM Turno
+
+INSERT INTO PagoPaciente VALUES('1', '4', '6'),
+('2', '6', '6'),
+('3', '7', '6')
+
+*/
+
+--Insertar registros en la tablas Pago, PagoPaciente y Concepto (Ejercicio - Clase 87)
+
+/*
+SELECT * FROM Especialidad
+
+INSERT INTO Especialidad VALUES('Traumatología'), 
+('Clínica Médica'),
+('Gastroenterología'),
+('Pediatría')
+*/
+
+--Ejemplo de la clase 89  - Clausula TOP
+
+/*
+--Para mostras los 2 primeros pacientes de toda la tabla
+SELECT TOP 2 * FROM Paciente
+
+--Para mostrar solo los 2 primeros de la tabla pacientes sus nombre y apellidos
+SELECT TOP 2 nombre, apellido  FROM Paciente
+
+*/
+
+--Ejemplo de la clase 90  - Clausula ORDER BY
+
+/*
+--Ordenar de menor a mayor la tabla paciente por su fecha de nacimiento
+SELECT * FROM Paciente ORDER BY fNacimiento
+
+--Ordenar de mayor a menro la tabla paciente por su fecha de nacimiento
+SELECT * FROM Paciente ORDER BY fNacimiento DESC
+*/
+
+--Ejemplo de la clase 91  - Combinacion de TOP con ORDER BY
+
+/*
+--Mostrar solo el mas mayor de los paciente
+SELECT TOP 1 * FROM Paciente ORDER BY fNacimiento
+
+--Mostrar solo el mas menor de los paciente
+SELECT TOP 1 * FROM Paciente ORDER BY fNacimiento DESC
+*/
+
+--Ejemplo de la clase 92  - Clausula DISTINCT
+
+/*
+SELECT * FROM Paciente
+
+--Solo muestrame de la tabla paciente, la columna de idPais y que no se repita el dato.
+SELECT DISTINCT idPais  FROM Paciente
+
+--Solo muestrame de la tabla paciente, la columna de nacimiento y que no se repita el dato.
+SELECT DISTINCT fNacimiento  FROM Paciente
+*/
+
+--Ejemplo de la clase 93  - Clausula GROUP BY (Parecido al DISTINCT pero puedes hacer mas funciono, consultas y mas)
+
+/*
+--Solo muestrame de la tabla paciente, la columna de idPais y que no se repita el dato. (Con un GROUP BY)
+SELECT idPais FROM Paciente GROUP BY idPais
+*/
+
+--Ejemplo de la clase 94  - Clausula WHERE
+
+/*
+SELECT * FROM Paciente
+
+--Buscame a los pacientes que vivan en Colombia (COL)
+SELECT * FROM Paciente WHERE idPais = 'COL'
+
+--Buscame los pacientes que tengan el apellido Perez
+SELECT * FROM Paciente WHERE apellido = 'Perez'
+
+--Buscame el paciente con el id 4
+SELECT * FROM Paciente WHERE idPaciente = 4
+
+--Buscame los pacientes que tengan la fecha de nacimiento 2019-01-18
+SELECT * FROM Paciente WHERE fNacimiento = '20190118'
+*/
+
+--Ejemplo de la clase 96  - Comando UPDATE
+
+/*
+SELECT *FROM Paciente
+
+--Quiero que me cambies de la tabla paciente todo sobre observacion
+UPDATE Paciente SET observacion = 'sin observacion'
+
+--Quiero que me cambies el email de la tabla paciente en el idPaciente 4
+UPDATE Paciente SET email = 'correo@gmail.com' WHERE idPaciente = 4
+
+--Quiero que me cambies el dni y el domicilio de la tabla paciente en el idPaciente 4
+UPDATE Paciente SET dni = '458256965', domicilio = 'Calle 23 1512' WHERE idPaciente = 4
+*/
+
+--Ejemplo de la clase 97  - Comando DELETE
+
+/*
+SELECT *FROM Paciente
+
+SELECT * FROM PagoPaciente
+
+--Eliminame de la tabla pagopaciente el idPago 2
+DELETE FROM PagoPaciente WHERE idPago = 2
+
+--Eliminame de la tabla paciente el idpaciente 6
+DELETE FROM Paciente WHERE idPaciente = 6
+*/
+
+--Insertar un nuevo turno (Ejercicio - Clase 98)
+
+/*
+SELECT * FROM Turno
+
+INSERT INTO Turno VALUES('2019-01-22', '0', 'Turno pendiente de aprobación')
+
+SELECT * FROM TurnoPaciente
+
+SELECT * FROM Paciente
+
+SELECT * FROM Medico
+
+INSERT INTO TurnoPaciente VALUES(1002, 7,  1)
+*/
+
+--Ejemplo de la clase 99  - Comando DELETE y Foreing Keys
+
+/*
+SELECT * FROM Paciente
+
+--Eliminar de la tabla paciente el idpaciente 7
+DELETE FROM Paciente WHERE idPaciente = 7
+
+SELECT * FROM TurnoPaciente
+
+--Eliminar de la tabla turnopaciente el idturno 1002
+DELETE FROM TurnoPaciente WHERE idTurno = 1002
+
+SELECT * FROM PagoPaciente
+
+--Eliminame de la tabla pagopaciente el idPago 3
+DELETE FROM PagoPaciente WHERE idPago = 3
+*/
+
+--Propiedad allow null en medico (Ejercicio - Clase 101)
+
+/*
+SELECT * FROM Medico
+
+INSERT INTO Medico VALUES (NULL, NULL)
+*/
+
+--Establecer propiedad IDENTITY (Ejercicio - Clase 102)
+
+/*
+SELECT * FROM TurnoEstado
+
+INSERT INTO TurnoEstado VALUES ('Prueba')
+*/
+
+--Renombar y cambiar tipo de dato(Ejercicio - Clase 103)
+
+/*
+SELECT * FROM Pago
+*/
+
+--Eliminar Campo (Ejercicio - Clase 104)
+
+/*
+SELECT * FROM paciente
+*/
+
+--Eliminar CampoRealizar consulta SELECT ORDER BY (Ejercicio - Clase 105)
+
+/*
+SELECT * FROM Pago
+
+--Realiza un registro que de la tabla pago me muestre todo los registro por fecha de manera ascendente
+SELECT * FROM Pago ORDER BY fecha
+*/
+
+--Realizar consulta SELECT TOP ORDER BY (Ejercicio - Clase 106)
+
+/*
+SELECT * FROM Paciente
+
+--Realiza un registro que de la tabla pacinete donde me muestres al mas joven de ellos
+SELECT TOP 1 * FROM Paciente ORDER BY fNacimiento DESC
+*/
+
+--Ejemplo de la clase 107  - Funcion MAX y MIN
+
+/*
+SELECT * FROM Pago
+
+--Muestrame con la tabla pago, la fecha maxima 
+SELECT MAX(fecha)FROM Pago
+
+--Muestrame con la tabla pago, el monto minimo
+SELECT MIN(monto)FROM Pago
+*/
+
+--Ejemplo de la clase 108  - Funcion SUM
+
+/*
+SELECT * FROM PAGO
+
+--Muestrame con la tabla pago, la suma total del monto
+SELECT SUM(monto) FROM Pago
+
+--Muestrame con la tabla pago, la suma total del monto y con el alias o nombre montoTotal
+SELECT SUM(monto) AS montoTotal FROM Pago
+
+--Muestrame con la tabla pago, la suma total del monto + sumar 20 por cada fila y con el alias o nombre montoTotal
+SELECT SUM(monto + 20) AS montoTotal FROM Pago
+
+--Muestrame con la tabla pago, la suma total del monto + la suma de 20 y con el alias o nombre montoTotal
+SELECT SUM(monto) + 20 AS montoTotal FROM Pago
+*/
+
+--Ejemplo de la clase 109  - Funcion AVG
+
+/*
+SELECT * FROM Pago
+
+--De la tabla pago, buscame el monto promedio 
+SELECT AVG(monto) AS montoPromedio FROM Pago
+
+--De la tabla pago, buscame el monto promedio y suma 20 en cada fila de ese promedio
+SELECT AVG(monto +20) AS montoPromedio FROM Pago
+
+--De la tabla pago, buscame el monto promedio y suma 20 a ese promedio
+SELECT AVG(monto) + 20 AS montoPromedio FROM Pago
+*/
+
+--Ejemplo de la clase 110  - Funcion COUNT
+
+/*
+SELECT * FROM Paciente
+
+--Dime cuanto paciente hay en la tabla paciente
+SELECT COUNT(*)FROM Paciente
+
+--Dime cuanto paciente hay en la tabla paciente
+SELECT COUNT(idPaciente)FROM Paciente
+
+--Dime cuanto paciente hay en la tabla paciente que tengan el apellido Perez
+SELECT COUNT(idPaciente)FROM Paciente WHERE apellido = 'Perez'
+*/
+
+--Ejemplo de la clase 111  - Funcion HAVING
+
+/*
+SELECT * FROM Turno
+
+INSERT INTO Turno VALUES ('2020-02-04',1,'obs')
+
+INSERT INTO Turno VALUES ('2020-04-12',1,'obs'),
+('2012-07-14',2,'obs'),
+('2000-07-23',2,'obs'),
+('2015-09-07',3,'obs'),
+('2014-06-05',3,'obs')
+
+INSERT INTO Turno VALUES ('2014-06-04',3,'obs')
+
+--Muestrame de la tabla turno cuanto son los que tiene el estado 2
+SELECT estado FROM Turno GROUP BY estado HAVING estado = 2
+
+--Muestrame de la tabla turno cuantos son lo que tienen solo 2 estados
+SELECT estado FROM Turno GROUP BY estado HAVING COUNT(estado) = 2
+
+--Muestrame de la tabla turno cuantos son lo que tienen solo 3 estados
+SELECT estado FROM Turno GROUP BY estado HAVING COUNT(estado) = 3
+
+--Muestrame de la tabla turno cuantos son lo que tienen mas de 2 estados
+SELECT estado FROM Turno GROUP BY estado HAVING COUNT(estado) > 2
+*/
+
+--Ejemplo de la clase 112  - Operador AND
+
+/*
+SELECT * FROM Paciente
+
+--Muestrame al paciente que tenga el apellido Ramirez y el nombre Jorge
+SELECT * FROM Paciente WHERE apellido = 'Ramirez' AND nombre= 'Jorge'
+
+--Muestrame al paciente que tenga el apellido Ramirez , el nombre Jorge y el id 4
+SELECT * FROM Paciente WHERE apellido = 'Ramirez' AND nombre= 'Jorge' and idPaciente=4
+*/
+
+--Ejemplo de la clase 113  - Operador OR
+
+/*
+SELECT * FROM Paciente
+
+--Muestrame al paciente que tenga el apellido Ramirez o Nombre Jorge o id 4
+SELECT * FROM Paciente WHERE apellido = 'Ramirez' or nombre= 'Jorge' or idPaciente=4
+*/
+
+--Ejemplo de la clase 114  - Operador IN
+
+/*
+SELECT * FROM Turno
+
+--Muestrame de la tabla turno todos los que tengan en el estado 2,1 y 3
+SELECT * FROM Turno WHERE estado IN(2,1,3)
+
+--Muestrame de la tabla paciente todos los que tengan en el apellido: Ramirez, Paredez y Torres
+SELECT * FROM Paciente WHERE apellido IN('Ramirez','Paredez','Torres')
+*/
+
+--Ejemplo de la clase 115 - Operador LIKE
+
+/*
+--Muestrame de la tabla paciente el empiecen con el patron Carlo
+SELECT * FROM Paciente WHERE nombre LIKE 'Carlo%'
+
+--Muestrame de la tabla paciente el que empiece y termine con el patron arlo
+SELECT * FROM Paciente WHERE nombre LIKE '%arlo%'
+*/
+
+--Ejemplo de la clase 116 - Operador NOT
+
+/*
+--Muestrame en la tabla paciente los que no empiecen y terminen con el patron arlo
+SELECT * FROM Paciente WHERE nombre NOT LIKE '%arlo%'
+
+--Muestrame en la tabla paciente, los que no tienen los apellido: Ramirez, Paredez y Torres
+SELECT * FROM Paciente WHERE apellido NOT IN('Ramirez','Paredez','Torres')
+*/
+
+--Ejemplo de la clase 117 - Operador BETWEEN
+
+/*
+--Muestrame en la tabla turno la fechas entre 2019-01-22 hasta 2020-04-12
+SELECT * FROM Turno WHERE fechaTurno BETWEEN '2019-01-22' AND '2020-04-12'
+
+--Muestrame en la tabla turno los estaod que esten entre 1 hasta 3
+SELECT * FROM Turno WHERE estado BETWEEN 1 AND 3
+*/
+
+--Ejemplo de la clase 118 - Combinacion Operadores
+
+/*
+--Muestrame de la tabla paciente el que tenga el apellido Ramirez y con el nombre Jorge o Id 4
+SELECT * FROM Paciente WHERE apellido = 'Ramirez' AND nombre= 'Jorge' OR  idPaciente=4
+
+--Muestrame de la tabla paciente el que tenga el apellido Ramirez y con el nombre Jorge o Id 4 o del pais Colombia
+SELECT * FROM Paciente WHERE apellido = 'Ramirez' AND nombre= 'Jorge' OR  idPaciente=4 OR idPais='COL'
+
+--Muestrame de la tabla paciente el que tenga el apellido Ramirez y si es asi, debe mostrar que tenga...
+--El nombre Jorge o id 4 o Que sea de colombia y  su id debe ser (4, 8)
+SELECT * FROM Paciente WHERE apellido = 'Ramirez' 
+AND (nombre= 'Jorge' OR  idPaciente=4 OR idPais='COL') 
+AND idPaciente IN (4,8)
+
+--Muestrame de la tabla paciente el que tenga el apellido Ramirez y si es asi, debe mostrar que tenga...
+--El nombre Jorge o id 4 o Que sea de colombia y  no deben ser su id (4, 8)
+SELECT * FROM Paciente WHERE apellido = 'Ramirez' 
+AND (nombre= 'Jorge' OR  idPaciente=4 OR idPais='COL') 
+AND idPaciente NOT IN (4,8)
+*/
+
+--Dia 22 de julio del 2024 (Lunes)
+
+--Ejemplo de la clase 120 - Store procedure
+
+/*
+--Crear un procedure que llame por la variable idpaciente a seleccionar a todos los paciente
+CREATE PROC S_paciente (
+			@idpaciente int 
+)
+AS
+
+SELECT  * FROM Paciente WHERE idPaciente = @idpaciente
+
+GO
+
+/*
+--Esto serive para tomar o no los valores nulls de esa consulta
+
+SET ANSI_NULLS OFF
+SELECT  * FROM Paciente WHERE domicilio = NULL
+*/
+
+/*
+--Nos permite crear objetos con nombre de palabras reservadas (OJO: No es recomentable) 
+
+SET QUOTED_IDENTIFIER OFF
+GO
+CREATE TABLE "select" (campo1 varchar (50))
+*/
+
+--Para ejecutar el peocedure de S_paciente seleccionando el ID y ya habiendolo modificado el procedure
+EXEC S_paciente 8
+
+--Esto es de lo modificado en el store procedure:
+
+ALTER PROC [dbo].[S_paciente] (
+			@idpaciente int 
+)
+AS
+
+SELECT apellido, nombre, idPais, observacion FROM Paciente WHERE idPaciente = @idpaciente
+*/
+
+--Dia 26 de julio del 2024 (Viernes):
+
+--Ejemplo de la clase 121 - Que es una variable  y Uso de ISNULL para evaluar valores
+
+/*
+--Todo eso es un ejemplo dentro de un store procedure
+
+--Declaramos una variable ordenamiento para que muestre A
+--DECLARE @ordenamiento CHAR(1) = 'A'
+
+--Declaramos una variable ordenamiento
+DECLARE @ordenamiento CHAR(1)
+--Declaramos una variable valorOrdenamiento
+DECLARE @valorOrdenamiento CHAR(1)
+
+--Aqui mencionamo que la variable valorOrdenamiento muestre null si esta vacio y si no A si tiene el valor
+SET @valorOrdenamiento = ISNULL(@ordenamiento, 'A')
+
+--Imprimire el valor dado por esa variable
+PRINT @valorOrdenamiento
+
+--Declarar el valor ordenamiento que de igual a D
+SET @ordenamiento = 'D'
+*/
+
+--Ejemplos para declarar Variables de distintos Tipos de Dato (Ejercicio - Clase 122)
+
+/*
+--Todo eso en un store procedure
+
+--Ejemplo 1
+--Declara que el valor entero
+DECLARE @entero INT
+--Declara que sea NULL
+SET @entero = NULL
+--Si es null entonces se pondra 0 y la columna se llamara valor
+SELECT ISNULL(@entero, 0) AS Valor
+
+--Ejemplo 2
+--Declara el decimal que sea de 10 digitos y 2 puntos decimales
+DECLARE @decimal DECIMAL(10,2)
+--Declara el valor null
+SET @decimal = NULL
+--Si es null entonces el valor sera de 0.00
+SELECT ISNULL(@decimal, 0.00) AS Valor
+
+--Ejemplo 3
+--Declara el valor como un varchar llamado cadena
+DECLARE @cadena VARCHAR(50)
+--Este se declara NULL
+SET @cadena = NULL
+--Este se le asigna el valor de texto predeterminado
+SELECT ISNULL(@cadena, 'Texto predeterminado') AS Valor
+
+--Ejemplo 4
+--Declara que este sea tipo fecha la variable
+DECLARE @fecha DATETIME
+--Que el valor sea NULL
+SET @fecha = NULL
+--Se muestre el valor de la fecha actual con getdate()
+SELECT ISNULL(@fecha, GETDATE()) AS Valor
+
+--Ejemplo 5
+--Se declara una variable de bit
+DECLARE @booleano BIT
+--Contiene el valor NULL
+SET @booleano = NULL
+--Este se muestre como 0 en su valor si es null
+SELECT ISNULL(@booleano, 0) AS Valor
+
+--Ejemplo 6
+--Se declara una variable money
+DECLARE @moneda MONEY
+--Este sera con un valor NULL
+SET @moneda = NULL
+--Donde mostrara que si es NULL el valor se podre 0.00
+SELECT ISNULL(@moneda, 0.00) AS Valor
+*/
+
+--Dia 30 de agosto del 2024 (Viernes):
+
+--Ejemplo de la clase 123 - Programando subconsultas y uso de alias de tablas:
+
+/*
+SELECT * FROM Paciente
+
+EXEC S_paciente 4
+
+SELECT * FROM Pais
+
+SELECT apellido, nombre, idPais, observacion,
+	--Lo que se hizo para la modificacion de esta parte del store procedure
+	--Es ponder otra columna que seleccion del la tabla pais (Prefijo = ps)
+	--Donde sea igual a pais de la tabla paciente (Prefijo =pa) y muestr los nombre de los paises completos en esa columna
+	(SELECT ps.Pais from pais ps where ps.idPais= pa.idPais)  descPais
+FROM Paciente pa WHERE idPaciente = @idpaciente
+*/
+
+
+--Ejemplo de la clase 125 - IF ELSE Y BEGIN END
+
+/*
+--SELECT * FROM Paciente
+--SELECT * FROM Turno
+
+--Declaramos 2 variables turno y paciente
+DECLARE @idpaciente int
+DECLARE @idturno int
+
+--Decimos si paciente es igual a 8
+set @idpaciente = 8
+
+--Si cumple con la condicion entonces se declara idturno igual a 20
+--Selecciona la tabla paciente donde idpaciente sea igua a la variable @idpaciente
+--Y finalmente imprime el valor que dio idturno (Que es 20)
+IF @idpaciente = 8 
+BEGIN
+	SET @idturno = 20
+	SELECT * FROM Paciente WHERE idPaciente=@idpaciente
+	PRINT @idturno
+END
+--En caso de que no cumpla la condicion, mostrara el mensaje de que no se cumplio la condicion
+ELSE
+BEGIN 
+	print 'No se cumplio esta condicion'
+END
+*/
