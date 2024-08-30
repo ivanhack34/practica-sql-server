@@ -1,6 +1,6 @@
 # Ejercicios y Ejemplos de SQL Server
 
-¡Bienvenido a mi repositorio! Aquí encontrarás los ejercicios y ejemplos que he realizado como parte de mis cursos de SQL Server. Este repositorio sirve como un espacio para practicar y mejorar mis habilidades en SQL Server, incluyendo consultas, administración de bases de datos, optimización y más.
+¡Bienvenido a mi repositorio! Aquí encontrarás los ejercicios y ejemplos que he realizado en este curso de SQL Server. Este repositorio sirve como un espacio para practicar y mejorar mis habilidades en SQL Server, incluyendo consultas, administración de bases de datos, optimización y más.
 
 Los ejercicios y ejemplos están basados en el curso de Udemy [Master SQL Server](https://www.udemy.com/course/master-sql-server/).
 
