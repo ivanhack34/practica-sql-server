@@ -748,3 +748,93 @@ BEGIN
 		print 'existe'
 END
 */
+
+--Dia 3 de septiembre del 2024 (miercoles):
+
+--Ejemplo de la clase 127 - WHILE
+
+/*
+--Declaramos la variable que sea un entero igual a 0
+DECLARE @contador int=0
+--Usamos la condicional while  para repetir un ciclo que sea hasta menos o igual a 10
+WHILE @contador <= 10
+BEGIN
+--Imprime el valor de la variable y esa lo declara sumando cada ciclo +1 hasta llegar a 10
+	print @contador
+	set @contador = @contador + 1
+END
+*/
+
+--Ejemplo de la clase 128 - CASE
+
+/*
+--Declaro la variable valor como entero y declaro la variable resultado como char(10) igual a vacio
+DECLARE @valor int
+DECLARE @resultado char(10)=''
+--Le setiamos a la variable valor el que queramos 
+set @valor = 50
+
+--Creamos la condicional casa de si es 10,20,30 o otro valos dara un resultado
+set @resultado = (CASE WHEN @valor = 10 THEN 'ROJO'
+						WHEN @valor = 20 THEN 'VERDE'
+						WHEN @valor = 30 THEN 'AZUL'
+					ELSE 'GRIS'
+				END)
+print @resultado
+*/
+
+/*
+--De la tabla tueno la seleccionamos y le creamos una columna llamada colorTurno 
+--Del cual mostrara con la condicional case dependiendo el valor del estado un resultado diferentes
+select *,(CASE WHEN estado = 1 THEN 'VERDE'
+				WHEN estado = 2 THEN 'ROJO'
+				WHEN estado = 3 THEN 'AZUL'
+			ELSE 'GRIS'
+		END) as colorTurno from Turno	
+*/
+
+--Ejemplo de la clase 129 - RETURN y BREAK
+
+/*
+DECLARE @contador int=0
+
+WHILE @contador <= 10
+BEGIN
+	print @contador
+	set @contador = @contador + 1
+--Creamos 2 intrucciones para este ejemplo: Una que use return para poder retornar hasta 3 y pare con hola en cada loop
+--La otra el break, para cuando termien el ciclo de ese if = 3 siga fuera de el mismo.
+	IF @contador =3
+		/*RETURN
+	PRINT 'hola'
+	*/
+		BREAK
+END
+PRINT 'sigue ejecutando'
+*/
+
+--Ejemplo de la clase 130 -TRY CATCH
+
+/*
+DECLARE @contador int=0
+
+WHILE @contador <= 10
+BEGIN
+	print @contador
+	set @contador = @contador + 1
+	IF @contador =3
+		BREAK
+END
+PRINT 'sigue ejecutando'
+
+--Este try catch sirve para evitar el error a la hora de poner la variable @contador que no es + su mensaje
+BEGIN TRY 
+	SET @contador = 'texto'
+END TRY
+
+BEGIN CATCH 
+	print 'No es posible asignar un texto a la variable @contador'
+END CATCH
+*/
+
+
